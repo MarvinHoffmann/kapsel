@@ -1,0 +1,48 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="author" content="Marvin Hoffmann, SAP Mobile Innovation Technology">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline' data:; img-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+    <title>Marvins Kapsel Testapp</title>
+
+    <!-- Cordova reference, this is added to your app when it's built. -->
+    <script src="cordova.js"></script>
+    <script src="scripts/platformOverrides.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="utils/SMPHelper.js"></script>
+    <!-- Load SAP UI5 (and jQuery) from the local copy used by the Logon plugin. -->
+
+    <!-- If using a different version of the Logon plugin the referenced jQuery version might have to be adapted here-->
+   <script type="text/javascript" charset="utf-8" src="smp/logon/ui/resources/sap/ui/thirdparty/jquery/jquery-1.11.1.js"></script>
+   <script src="smp/logon/ui/resources/sap-ui-core-nojQuery.js"
+            id="sap-ui-bootstrap"
+            data-sap-ui-libs="sap.m"
+            data-sap-ui-theme="sap_bluecrystal"
+            data-sap-ui-xx-bindingSyntax="complex"
+            data-sap-ui-resourceroots='{"sap.mit.hybrid.ref": "./"}'> </script>
+
+    <script type="text/javascript">
+
+        //require explicit datajs, is needed, e.g. when using ODataOffline (applyHttpClient)
+        jQuery.sap.require("sap.ui.thirdparty.datajs");
+
+            //used for Toasts and MessageBoxes
+            jQuery.sap.require("sap.m.MessageToast");
+            jQuery.sap.require("sap.m.MessageBox");
+
+            sap.ui.getCore().attachInit(function () {
+                //wait for sapui5 to load before executing sapui5 UI related coding
+
+                initializeUI();
+
+            });
+   
+    </script>
+
+</head>
+<body class="sapUiBody" id="content">
+
+</body>
+</html>
